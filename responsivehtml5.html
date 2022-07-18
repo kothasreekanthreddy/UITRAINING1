@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Layout</title>
+	<style>
+		.head1 {
+			font-size:40px;
+			color:#009900;
+			font-weight:bold;
+		}
+		.head2 {
+			font-size:17px;
+			margin-left:10px;
+			margin-bottom:15px;
+		}
+		body {
+			margin: 0 auto;
+			background-position:center;
+			background-size: contain;
+		}
+	
+		.menu {
+			position: sticky;
+			top: 0;
+			background-color: #009900;
+			padding:10px 0px 10px 0px;
+			color:white;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.menu a {
+			float: left;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 20px;
+		}
+		.menu-log {
+			right: auto;
+			float: right;
+		}
+		footer {
+			width: 100%;
+			bottom: 0px;
+			background-color: #000;
+			color: #fff;
+			position: absolute;
+			padding-top:20px;
+			padding-bottom:50px;
+			text-align:center;
+			font-size:30px;
+			font-weight:bold;
+		}
+		.body_sec {
+			margin-left:20px;
+		}
+        table{
+            border-collapse: collapse;
+        }
+        tr{
+            padding:3px;
+            border:2px solid red;
+        }
+        th{
+            background-color: green;
+            color: #fff;
+            padding-left:5px;
+        }
+	</style>
+</head>
+
+<body>
+	
+	<!-- Header Section -->
+	<header>
+		<div class="head1">UI Training</div>
+		<div class="head2">HTML Layout, Tables and list views</div>
+	</header>
+	
+	<!-- Menu Navigation Bar -->
+	<nav class="menu">
+		<a href="#home">HOME</a>
+		<a href="#news">NEWS</a>
+		<a href="#notification">NOTIFICATIONS</a>
+		<div class="menu-log">
+			<a href="#login">LOGIN</a>
+		</div>
+	</nav>
+	
+	<!-- Body section -->
+	<main class = "body_sec">
+		<section id="Content" style="display: inline;width: 100%;">
+			<h3>Content section</h3>
+            <div style="width:50%">
+            <table style="width:50%"">
+                <thead>
+                
+                    <th>Categories</th>
+                    <th>Category1</th>
+                    <th>Category2</th>
+                    <th>Category3</th>
+                    
+                </th>
+                </thead>
+                <tr>
+                    <th>Item1</th>
+                    <td>4.5</td>
+                    <td>4.6</td>
+                    <td>4.7</td>
+                    
+                </td>
+                <tr>
+                    <th>Item 2</th>
+                    <td>5.1</td>
+                    <td>5.2</td>
+                    <td>5.3</td>
+                    
+                </tr>
+                <tr>
+                    <th>Item 3</th>
+                    <td>6.1</td>
+                    <td>6.2</td>
+                    <td>6.3</td>
+                    
+                </tr>
+
+            </table>
+        </div>
+            <div style="width:50%">
+            <ul style="width:15%;list-style: none;float:right"> 
+                <h4>Fruits</h4>
+                <li>Apple</li>
+                <li>MAngo</li>
+                <li>Grapes</li>
+                <li>Pine Apple</li>
+            </ul>
+            <ol style="width:15%;list-style: none;float:right">
+                <h4>Vegetables</h4>
+                <li>Brinjal</li>
+                <li>Tomato</li>
+                <li>Potato</li>
+                <li>Spanish</li>
+            </ol>
+            </div>
+		</section>
+	</main>
+	
+	<!-- Footer Section -->
+	<footer>Footer Section</footer>
+</body>
+</html>
