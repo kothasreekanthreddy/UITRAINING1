@@ -1,0 +1,29 @@
+<html>
+ <head><title>Practising</title>
+ <style>
+ #color1{background-color:pink;color:black;}
+ #color2{background-color:rgb(22, 231, 238);color:black;}
+ #color3{background-color:rgb(229, 233, 31);color:black;}
+ .buttonColor{background-color:rgb(15, 236, 70);color:black;}
+ </style>
+ <script>
+     function display(name1)
+     {
+         alert("Hi, This is "+ " " +name1);
+     }
+ </script>
+ </head>
+ 
+ <body>
+ <h5>Adding 3 buttons with different colors</h5>
+ <p>using ID selector</p>
+ <button id="color1" name="b1"onclick="display(name)">b1</button>
+  <button id="color2" name="b2"onclick="display(name)">b2</button>
+  <button id="color3" name="b3"onclick="display(name)">b3</button>
+  <h5>Adding 3 buttons with same colors</h5>
+  <p>using CLASS selector</p>
+  <button class="buttonColor" name="button1"onclick="display(name)">button 1</button>
+  <button class="buttonColor" name="button2"onclick="display(name)">button 2</button>
+  <button class="buttonColor" name="button3"onclick="display(name)">button 3</button>
+  </body>
+ </html>
