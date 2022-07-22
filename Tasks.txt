@@ -1,0 +1,10 @@
+Tasks
+
+1) Create a application with header, footer, section, sidebar and navigation.
+2) this application should support responsiveness
+3) Add table in section place
+4) add list view in section place
+5) display some advertisement in side bar
+6) add form with input fields text,email,radio,checkbox and with submit button
+7) add one video and audio in the same page(small width and height video and audio)
+8) add some javascript functionality for button with alert showing button text
