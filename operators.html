@@ -1,0 +1,40 @@
+<html>
+<head>
+
+</head>
+<body>
+
+    <input type="text" id="value1"></input>
+    <input type="text" id="value2"></input>
+    
+
+<button onclick="caluclate('addition',30,40)">Addition</button>
+<button onclick="caluclate('subtration',20,40)">Subtraction</button>
+<button onclick="caluclate('default',30,90)">Default</button>
+
+<span id="calucllatedData"></span>
+
+<script>
+function caluclate(operation,value1,value2){
+    var value1 = value1
+    var value2 = value2
+    //Addintion
+    var caluclationType = operation;
+    switch(caluclationType){
+        case 'addition':
+            var calucllatedData = value1+value2;
+            document.getElementById("calucllatedData").innerHTML = +calucllatedData;
+            break;
+        case 'subtration':
+            var calucllatedData = value1-value2;
+            document.getElementById("calucllatedData").innerHTML = +calucllatedData;
+            break;
+        case 'default' :
+        var calucllatedData = (value1)/value2;
+            document.getElementById("calucllatedData").innerHTML = +calucllatedData;
+            break; 
+    }
+}
+</script>
+</body>
+</html>

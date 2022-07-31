@@ -1,0 +1,54 @@
+<html>
+<head>
+
+</head>
+<body>
+<button id="button1" class="buttons">this is my first button</button>
+<button id="button2" class="buttons">this is my second button</button>
+
+<input type="number" id="a" value="4"></input>
+<input type="number" id="b" value="5"></input>
+<button onclick="sumlocal()">Caluclate Local</button>
+<input type="number" id="sumlocal"  ></input>
+
+<br>
+<br>
+<input type="number" id="b1" value="5"></input>
+<button onclick="sumglobal()">Caluclate global</button>
+<input type="number" id="sumglobal"  ></input>
+<script>
+    var a = 25;
+    /* 
+    this below code explains you how to 
+    identify the buttons based on class and id 
+    and will add some javascrit functioanlity to the code
+    */
+   //button1 is the variable that stores the button1 inner htmkl
+    var button1 = document.getElementById("button1").innerHTML;
+    console.log(button1);
+    //button2 is the variable that stores the button1 inner html
+    var button2 = document.getElementById("button2").innerHTML;
+    alert(button2);
+    //buttons is the variable that stores all buttons data
+    var buttons = document.getElementsByClassName("buttons");
+    console.log(buttons);
+
+    function sumlocal(){
+
+        var fruits = [];
+        var vegetables = [];
+        fruits = ["mango","apple","pineapple",'jamun']
+        vegetables = ["tomato","potato","lemon","brinjal"];
+        
+    }
+    function sumglobal(){
+
+
+
+var b = parseInt(document.getElementById("b1").value);
+var sum = a+b;
+document.getElementById("sumglobal").value = sum;
+}
+    </script>
+</body>
+</html>
