@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>UI Training For Free</title>
+<style>
+ 
+ html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}
+    header{
+        width:100%;
+        height:100px;
+        background-color: lightcoral;
+        color: #fff;
+    }
+    aside{        
+        width:25%;
+        height:100px;
+        background-color: lightcoral;
+        color: black;
+        background:#6cf;
+    }
+
+    header,h2{
+        font-weight: bolder;
+        font-style: italic;
+        align-content: center;
+        text-align: center;
+    }
+ header,ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ 
+}
+
+
+header,ul,li {
+  float: left;
+}
+
+header,ul,li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+section#displaylatestroducts{
+    width:70%;
+    color: red;
+}
+aside{     
+        position: absolute;   
+        width:25%;
+        height:100px;
+        background-color: lightcoral;
+        color: black;
+        background:#6cf;
+    }
+
+#productslist{
+width:100%;
+}
+
+.itemsContainer {
+  float: left;
+  width : 300px;
+  height : 300px;
+  margin-left : 2px;
+  border : 1px solid black;
+  position : relative;
+  padding:3px;
+}
+
+.itemsContainer:hover{
+        transform:scale(1.1);
+        transition: all 0.3s;
+        background-color: chocolate;
+        z-index: 1;
+        cursor :pointer ;
+    }
+
+.image {
+  width : 300px;
+  height : 175px;
+  margin-bottom : -115px;
+  z-index : -1; 
+  border : 1px solid green;
+}
+
+.image img {
+      width : 300px;
+  height : 175px;
+
+}
+
+</style>
+
+
+</head>
+<body>
+    <div id="container">
+    <header>
+        <h2>Welcome to our Free UI Training - Fake Ecommerce Site</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="createproduct.html">Create Product</a></li>
+                <li><a href="index.html">Display Products</a></li>
+                <li><a href="updateproduct.html?productid=1">Update Products</a></li>
+                <li><a href="deleteproduct.html">Delete Products</a></li>
+              </ul>
+        </nav>
+    </header>
+    
+    <section style="width:100%" id="displaylatestroducts">
+        <div id="productdetailpage">
+
+            <p>Please update the product :</p>
+
+
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" value=""><br>
+    <label for="price">Price:</label><br>
+    <input type="text" id="price" name="price" value=""><br><br>
+    <button onclick="updateProduct()">Save Data</button>
+
+            <div class="clear">
+        </div>
+    </section>
+
+    </div>
+    <script>
+
+    if(sessionStorage.getItem("username") == undefined){
+        
+        window.location = "loginpage.html";
+    }
+
+    function logout(){
+        sessionStorage.clear();
+        window.location = "loginpage.html";
+    }
+
+        // Getting all products
+        var id = localStorage.getItem("productid");
+
+
+        function updateProduct(){
+            event.stopPropagation();
+            var currentProduct = localStorage.getItem("currentProduct");
+            fetch('https://fakestoreapi.com/products/'+id,{
+            method:"PUT",
+            body:JSON.stringify(
+                {
+                    title: document.getElementById("price").value,
+                    price: document.getElementById("title").value
+
+                }
+            )
+        })
+            .then(res=>res.json())
+            .then(json=>{
+                alert("Product's title and price got updated");
+            })
+        }
+       
+        </script>
+</body>
+</html>

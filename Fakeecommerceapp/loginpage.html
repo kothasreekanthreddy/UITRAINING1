@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>UI Training For Free</title>
+<style>
+ 
+ html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}
+    header{
+        width:100%;
+        height:100px;
+        background-color: lightcoral;
+        color: #fff;
+    }
+    aside{        
+        width:25%;
+        height:100px;
+        background-color: lightcoral;
+        color: black;
+        background:#6cf;
+    }
+
+    header,h2{
+        font-weight: bolder;
+        font-style: italic;
+        align-content: center;
+        text-align: center;
+    }
+ header,ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ 
+}
+
+#loginsection{
+    align-content: center;
+    text-align: center;
+}
+header,ul,li {
+  float: left;
+}
+
+header,ul,li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+section#displaylatestroducts{
+    width:70%;
+    color: red;
+}
+aside{     
+        position: absolute;   
+        width:25%;
+        height:100px;
+        background-color: lightcoral;
+        color: black;
+        background:#6cf;
+    }
+
+#productslist{
+width:100%;
+}
+
+.itemsContainer {
+  float: left;
+  width : 300px;
+  height : 300px;
+  margin-left : 2px;
+  border : 1px solid black;
+  position : relative;
+  padding:3px;
+}
+
+.itemsContainer:hover{
+        transform:scale(1.1);
+        transition: all 0.3s;
+        background-color: chocolate;
+        z-index: 1;
+        cursor :pointer ;
+    }
+
+.image {
+  width : 300px;
+  height : 175px;
+  margin-bottom : -115px;
+  z-index : -1; 
+  border : 1px solid green;
+}
+
+.image img {
+      width : 300px;
+  height : 175px;
+
+}
+
+</style>
+
+
+</head>
+<body>
+    <div id="container">
+    <header>
+        <h2>Please Login to APP to use our website</h2>        
+    </header>    
+    <section style="width:100%" id="loginsection">
+            <span id="login-error-message" style="color:red;"></span><br>
+            <label for="username">User Name:</label><br>
+            <input type="text" id="username" name="username" value=""><br>
+            <label for="password">Password:</label><br>
+            <input type="text" id="password" name="password" value=""><br><br>
+            <button onclick="login()">Login To App</button>
+
+        
+    </section>
+
+    </div>
+    <script>
+        
+       /* fetch('https://fakestoreapi.com/auth/login',{
+            method:'POST',
+            body:JSON.stringify({
+                username: "mor_2314",
+                password: "83r5^_"
+            })
+        })
+            .then(res=>res.json())
+            .then(json=>console.log(json))*/
+        function login(){
+        event.stopPropagation();
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        if(username == "ksreddi" && password == "ksreddi"){
+            sessionStorage.setItem("username","ksreddi");
+            window.location = "index.html";
+        }else{
+            document.getElementById("login-error-message").innerHTML = "Please use correct username and password";
+        }
+        }
+      
+        </script>
+</body>
+</html>

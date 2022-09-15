@@ -7,11 +7,13 @@
 <script>
 function displayFullName() {
     // Creating the XMLHttpRequest object
-    var request = new XMLHttpRequest();
+    //var request = new XMLHttpRequest();
 
     // Instantiating the request object
-    request.open("GET", "https://www.tutorialrepublic.com/examples/php/greet.php?fname=John&lname=Clark");
-
+    ////request.open("GET", "https://www.tutorialrepublic.com/examples/php/greet.php?fname=John&lname=Clark");
+    fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(json=>console.log(json));
     // Defining event listener for readystatechange event
     request.onreadystatechange = function() {
         // Check if the request is compete and was successful
