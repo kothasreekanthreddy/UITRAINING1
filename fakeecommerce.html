@@ -26,6 +26,13 @@
   .removeproduct:hover{
     background-color: red;
   }
+  #cartlist .card{
+    width:110px;
+    height:205px;
+  }
+  #cartlist{
+      display:block !important;
+  }
   </style>
   </head>
   <body>
@@ -51,9 +58,9 @@
               </div>
               </div>
             </div>
-            <div class="col-2">
+            <div class="col-2" style="border: 2px solid #dfdfdf;">
               <h4>Cart List</h4>
-              Total Amount: <span id="totalvalue">0</span>
+              Total Amount: <span id="totalvalue">0</span><br>
               Total Products: <div id="totalproducts"></div>
               <div class="container d-flex justify-content-center mt-50 mb-50">
             
@@ -73,14 +80,26 @@
       localStorage.setItem("cartproducts",[]);
 
     function renderAllCartItems(){
-
+     var cartItems =   JSON.parse(localStorage.getItem("cartproducts"));
+     $("#cartlist").html('');
+     $("#totalproducts").html(cartItems.length);
+     for(var m=0;m<=cartItems.length;m++){
+       var cartListItem = "<div class='col-md-4 mt-2'><div class='card'><img src='"+cartItems[m].thumbnail+"'/><br><span>"+cartItems[m].title+"</span><span>Price: "+cartItems[m].price+"Rs</span></div></div>";
+       $("#cartlist").append(cartListItem);
+      }
+      
+      
     }
     function displayTotalCost(){
-
+      var cartItems =   JSON.parse(localStorage.getItem("cartproducts"));
+      var price = 0;
+      for(i=0;i<cartItems.length;i++){
+        price = price+cartItems[i].price;
+        $("#totalvalue").html(price);
+        console.log(price);
+      }
     }
-    function toggleAddtoCartButton(){
 
-    }
     function addproducttocart(index){
       // add product to cart functionality
       var getProductsItem = JSON.parse(localStorage.getItem("products"));
@@ -102,12 +121,32 @@
         $("#removebutton"+id).addClass("showelement");
         $("#removebutton"+id).removeClass("hideelement");
                
-        console.log(cartItems);                       
+        console.log(cartItems); 
+        displayTotalCost(); 
+        renderAllCartItems();
+                          
                      
       }
   
     function removeproductfromcart(id){
       // remove product from cart functionality
+      var cartItems =   JSON.parse(localStorage.getItem("cartproducts"));
+      console.log("before rmoving"+cartItems);
+      for(var i=0;i<cartItems.length;i++){
+        if(cartItems[i].id == id){
+          cartItems.splice(i,1);          
+          break;
+        }
+      }
+      console.log("after rmoving"+cartItems);
+      localStorage.setItem("cartproducts",JSON.stringify(cartItems));
+      $("#addbutton"+id).removeClass("hideelement");
+      $("#addbutton"+id).addClass("showelement");  
+      $("#removebutton"+id).addClass("hideelement");
+      $("#removebutton"+id).removeClass("showelement");
+      console.log(cartItems); 
+        displayTotalCost(); 
+        renderAllCartItems();
     }
     var getAllProducts = fetch('https://dummyjson.com/products')
     .then(res=>res.json())
